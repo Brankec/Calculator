@@ -1,5 +1,6 @@
 #pragma once
 #include "AdvancedCalculator.h"
+#include <algorithm>
 
 class ParenthesisExtractor
 {

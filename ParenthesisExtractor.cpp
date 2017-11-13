@@ -17,6 +17,7 @@ std::string ParenthesisExtractor::result()
 
 std::string ParenthesisExtractor::parenthesisExtractor(std::string input)
 {
+
 	std::string resultStr(input);
 	while (true)
 	{

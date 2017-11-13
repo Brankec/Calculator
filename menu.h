@@ -4,6 +4,7 @@
 #include "calculation.h"
 #include "options.h"
 #include <string>
+#include <algorithm>
 
-void menu();
+int menu();
 

@@ -1,73 +1,85 @@
 #include "menu.h"
 #include "ParenthesisExtractor.h"
 
+std::string removeSpaces(std::string input)
+{
+	for (int i = 0; i<input.length(); i++)
+		if (input[i] == ' ') input.erase(i, 1);
 
-void menu()
+	return input;
+}
+
+int menu()
 {
 	char option;
 
-	std::cout << "Enter A for Advanced calculator or enter B for Basic Calculator" << std::endl;
-	while(std::cin >> option)
-	if (option == 'A')
+	std::cout << "Enter A for Calculator with an interpreter / Enter B for Basic Calculator" << std::endl;
+	while (std::cin >> option)
 	{
-		calculation<double> calc;
-
-		uint16_t size;
-
-		options(); //List of all options
-		std::cin >> option;
-
-		switch (option)
+		if (option == 'B')
 		{
-		case '+':
-			std::cout << "\n\nEnter the amount of number(s) you want to summarize: ";
+			calculation<double> calc;
 
-			std::cin >> size;
-			calc.howMany(size);
-			calc.addNumber();
+			uint16_t size;
 
-			std::cout << "Value: " << calc.R_in_de_crement() << std::endl;
+			options(); //List of all options
+			std::cin >> option;
 
-			break;
-		case '*':
-			std::cout << "\n\nEnter the amount of number(s) you want to multiply: ";
+			switch (option)
+			{
+			case '+':
+				std::cout << "\n\nEnter the amount of number(s) you want to summarize: ";
 
-			std::cin >> size;
-			calc.howMany(size);
-			calc.addNumber();
+				std::cin >> size;
+				calc.howMany(size);
+				calc.addNumber();
 
-			std::cout << "Value: " << calc.R_multiplication() << std::endl;
-
-			break;
-		case '/':
-			std::cout << "\n\nEnter the amount of number(s) you want to divide: ";
-
-			std::cin >> size;
-			calc.howMany(size);
-			calc.addNumber();
-
-			std::cout << "Value: " << calc.R_division() << std::endl;
-			break;
-		}
-	}
-	else if (option == 'B')
-	{
-		std::cout << "CALCULATOR (Enter expression OR [?] to exit!)" << std::endl;
-		while (true)
-		{
-			std::string input;
-			std::cout << "::::";
-			std::cin >> input;
-			if (input[0] == '?')
+				std::cout << "Value: " << calc.R_in_de_crement() << std::endl;
+				return 0;
 				break;
-			ParenthesisExtractor advance(input);
-			advance.calculate();
-			std::cout << ">>>>" << advance.result() << std::endl;
+			case '*':
+				std::cout << "\n\nEnter the amount of number(s) you want to multiply: ";
+
+				std::cin >> size;
+				calc.howMany(size);
+				calc.addNumber();
+
+				std::cout << "Value: " << calc.R_multiplication() << std::endl;
+				return 0;
+				break;
+			case '/':
+				std::cout << "\n\nEnter the amount of number(s) you want to divide: ";
+
+				std::cin >> size;
+				calc.howMany(size);
+				calc.addNumber();
+
+				std::cout << "Value: " << calc.R_division() << std::endl;
+				return 0;
+				break;
+			}
 		}
-	}
-	else
-	{
-		std::cout << "Unknown answer, try again..." << std::endl;
-		continue;
+		else if (option == 'A')
+		{
+			std::cout << "CALCULATOR (Enter expression OR [?] to exit)" << std::endl;
+			while (true)
+			{
+				std::string input;
+				std::cout << "::::";
+				std::cin >> input;
+				if (input[0] == '?')
+					return 0;
+				input = removeSpaces(input);
+				//input.erase(remove(input.begin(), input.end(), ' '), input.end()); //potential error/bug
+				ParenthesisExtractor advance(input);
+				advance.calculate();
+				std::cout << ">>>>" << advance.result() << std::endl;
+			}
+		}
+		else
+		{
+			std::cout << "Unknown answer, try again..." << std::endl;
+			return 0;
+		}
 	}
 }

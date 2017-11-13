@@ -10,6 +10,9 @@ AdvancedCalculator::AdvancedCalculator(std::string question) :
 void AdvancedCalculator::extractor()
 {
 	int pos = 0;
+
+	//m_question.erase(remove_if(m_question.begin(), m_question.end(), isspace), m_question.end());
+
 	for (int i = 0; i < m_question.length(); i++)
 	{
 		if (m_question[i] == '/' || m_question[i] == '*' || m_question[i] == '+' || m_question[i] == '-')
