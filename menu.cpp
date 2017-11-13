@@ -66,11 +66,11 @@ int menu()
 			{
 				std::string input;
 				std::cout << "::::";
-				std::cin >> input;
+				std::getline(std::cin, input);
+				//std::cin >> input;
 				if (input[0] == '?')
 					return 0;
 				input = removeSpaces(input);
-				//input.erase(remove(input.begin(), input.end(), ' '), input.end()); //potential error/bug
 				ParenthesisExtractor advance(input);
 				advance.calculate();
 				std::cout << ">>>>" << advance.result() << std::endl;
