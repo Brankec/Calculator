@@ -23,9 +23,10 @@ public: //R stands for Return
 	T R_in_de_crement() { return in_de_crement<T>(numberArray); };
 	T R_multiplication() { return multiplication<T>(numberArray); };
 	T R_division() { return division<T>(numberArray); };
+	T R_root() { return root<T>(numberArray[0]); };
 
 private:
 	T number;
-	int sizeArray = 0;
+	int sizeArray = 1;
 	std::vector<T> numberArray;
 };

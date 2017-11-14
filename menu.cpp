@@ -57,6 +57,12 @@ int menu()
 				std::cout << "Value: " << calc.R_division() << std::endl;
 				return 0;
 				break;
+			case 's':
+				calc.addNumber();
+
+				std::cout << "Value: " << calc.R_root() << std::endl;
+				return 0;
+				break;
 			}
 		}
 		else if (option == 'A')

@@ -35,7 +35,7 @@ T division(std::vector<T> numberArray)
 };
 ///////////////
 template<typename T>
-	T root(unsigned int number)
-	{
-		return sqrt(number);
-	}
+T root(T number)
+{
+	return sqrt(number);
+}
