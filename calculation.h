@@ -8,6 +8,7 @@ template<typename T>
 class calculation
 {
 public:
+	int n_power_to = 2;
 	void howMany(int sizeArray) { this->sizeArray = sizeArray; };
 	void addNumber()
 	{
@@ -24,9 +25,11 @@ public: //R stands for Return
 	T R_multiplication() { return multiplication<T>(numberArray); };
 	T R_division() { return division<T>(numberArray); };
 	T R_root() { return root<T>(numberArray[0]); };
+	T R_power_to() { return power_to<T>(numberArray[0], n_power_to); };
 
 private:
 	T number;
+
 	int sizeArray = 1;
 	std::vector<T> numberArray;
 };

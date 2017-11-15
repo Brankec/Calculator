@@ -63,6 +63,14 @@ int menu()
 				std::cout << "Value: " << calc.R_root() << std::endl;
 				return 0;
 				break;
+			case '^':
+				std::cout << "Enter the n power you want: ";
+				std::cin >> calc.n_power_to;
+				calc.addNumber();
+
+				std::cout << "Value: " << calc.R_power_to() << std::endl;
+				return 0;
+				break;
 			}
 		}
 		else if (option == 'A')

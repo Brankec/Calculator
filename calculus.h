@@ -39,3 +39,8 @@ T root(T number)
 {
 	return sqrt(number);
 }
+template<typename T>
+T power_to(T number, T power_to)
+{
+	return pow(number, power_to);
+}
