@@ -1,13 +1,15 @@
 #include <iostream>
 #include "menu.h"
+#include <math.h>
+//#define _USE_MATH_DEFINES
+
+const double PI = 3.14159265358979323846;
 
 int main()
 {
 	char option;
 
 	menu();
-
-
 
 ////RESET////
     std::cout << "\n\n\nReset?     ( y/n )" << std::endl;

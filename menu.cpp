@@ -71,6 +71,22 @@ int menu()
 				std::cout << "Value: " << calc.R_power_to() << std::endl;
 				return 0;
 				break;
+			case 't':
+				std::cout << "\n S ------------- sinus " << std::endl;
+				std::cout << " C ------------- cosinus " << std::endl;
+				std::cout << " T ------------- tanges " << std::endl;
+				std::cout << " t ------------- cotanges " << std::endl;
+				std::cout << "Choose an option: ";
+				std::cin >> option;
+				if (option == 'S')
+				{
+					std::cout << "*its in radians*" << std::endl;
+					calc.addNumber();
+
+
+					std::cout << "Value: " << calc.R_sinus() << std::endl;
+					return 0;
+				}
 			}
 		}
 		else if (option == 'A')
