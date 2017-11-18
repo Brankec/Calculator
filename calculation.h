@@ -28,6 +28,8 @@ public: //R stands for Return
 	T R_root() { return root<T>(numberArray[0]); };
 	T R_power_to() { return power_to<T>(numberArray[0], n_power_to); };
 	T R_sinus() { return sinus<T>(numberArray[0]); };
+	T R_cosinus() { return cosinus<T>(numberArray[0]); };
+	T R_tanges() { return tanges<T>(numberArray[0]); };
 
 private:
 	T number;

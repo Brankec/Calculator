@@ -87,6 +87,24 @@ int menu()
 					std::cout << "Value: " << calc.R_sinus() << std::endl;
 					return 0;
 				}
+				else if (option == 'C')
+				{
+					std::cout << "*its in radians*" << std::endl;
+					calc.addNumber();
+
+
+					std::cout << "Value: " << calc.R_cosinus() << std::endl;
+					return 0;
+				}
+				else if (option == 'T')
+				{
+					std::cout << "*its in radians*" << std::endl;
+					calc.addNumber();
+
+
+					std::cout << "Value: " << calc.R_tanges() << std::endl;
+					return 0;
+				}
 			}
 		}
 		else if (option == 'A')
