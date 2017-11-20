@@ -105,6 +105,15 @@ int menu()
 					std::cout << "Value: " << calc.R_tanges() << std::endl;
 					return 0;
 				}
+				else if (option == 't')
+				{
+					std::cout << "*its in radians*" << std::endl;
+					calc.addNumber();
+
+
+					std::cout << "Value: " << 1/calc.R_tanges() << std::endl;
+					return 0;
+				}
 			}
 		}
 		else if (option == 'A')
