@@ -10,7 +10,7 @@ using namespace OpenClI::myCalc;
 int main()
 {
 	bool running = true;
-	std::cout << std::setw(55) << "Kalkulator" << std::endl << std::endl;
+	std::cout << "Kalkulator" << std::endl << std::endl;
 	while (running) {
 		std::string input;
 		std::cout << "> ";
@@ -32,23 +32,26 @@ int main()
 		if (symbol == "quit" || symbol == "exit") {
 			running = false;
 		}
+		else if (symbol == "reset" || symbol == "clear") {
+			system("CLS");
+			std::cout << "Kalkulator" << std::endl << std::endl;
+		}
 		else if (symbols[0] == "c") {
 
 			std::string myString;
-			if(!vectorToString(myString, symbols))
+			if (!vectorToString(myString, symbols))
 				std::cout << "[ERROR] : UNESI ZADATAK" << std::endl;
 			else
 			{
 				stringToString(myString);
 				const std::vector<Token> myVec = Token::Tokenise(myString);
 				std::deque<Token> myQueue = Token::shuntingYard(myVec);
-				std::cout << "RJESENJE : "<< Token::EvaluateExpression(myQueue)<<std::endl;
+				std::cout << "RJESENJE : " << Token::EvaluateExpression(myQueue) << std::endl;
 			}
 		}
 	}
 	return 0;
 }
-
 // FUNCTION TO CONVERT A VECTOR OF STRINGS BACK TO A STRING(WILL NOT COPY THE FIRST ELEMENT)
 bool vectorToString(std::string& myString, std::vector<std::string>& myVector)
 {
@@ -78,6 +81,8 @@ void stringToString(std::string& str)
 		i++;
 	}
 
+	//std::cout << str << std::endl;
+
 	char symbol = ' ';
 
 	str.erase(
@@ -85,7 +90,8 @@ void stringToString(std::string& str)
 			str.begin(),
 			str.end(),
 			[symbol](char l, char r) -> bool {
-		return (l == symbol) && (l == r);
+				//std::cout << l << std::endl;
+				return (l == symbol) && (l == r);
 			}
 		),
 		str.end()
